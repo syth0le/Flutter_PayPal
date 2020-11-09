@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paypal/constants.dart';
 
 class SendMoneyScreen extends StatelessWidget {
   final List buttons = [
@@ -24,16 +25,16 @@ class SendMoneyScreen extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: new Text("Send Money",
-              style: GoogleFonts.manrope(
-                  textStyle: TextStyle(color: Color(0xFF365486)))),
+              style:
+                  GoogleFonts.manrope(textStyle: TextStyle(color: kAllColor))),
           elevation: 0,
           leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Color(0xFF365486),
+                color: kAllColor,
               ),
               onPressed: null,
-              color: Color(0xFF365486)),
+              color: Color(0xFF243656)),
           backgroundColor: Colors.white,
         ),
         body: new ListView(physics: NeverScrollableScrollPhysics(), children: [
@@ -67,7 +68,7 @@ class SendMoneyScreen extends StatelessWidget {
                               "A",
                               style: GoogleFonts.manrope(
                                   textStyle: TextStyle(
-                                      fontSize: 17, color: Color(0xFF365486))),
+                                      fontSize: 17, color: kAllColor)),
                             ),
                           ),
                         ),
@@ -90,7 +91,7 @@ class SendMoneyScreen extends StatelessWidget {
                                   style: GoogleFonts.manrope(
                                     textStyle: TextStyle(
                                       fontSize: 16.0,
-                                      color: Color(0xFF365486),
+                                      color: kAllColor,
                                     ),
                                   )),
                               Text('nielsen.ann@gmail.com',
@@ -129,15 +130,10 @@ class SendMoneyScreen extends StatelessWidget {
                               buttonText: buttons[index],
                               color: Color(0x1AFFFFFF),
                               // color: Colors.white,
-                              textColor: Color(0xFF365486),
+                              textColor: kAllColor,
                             );
                           }),
                     )),
-                    // NumButton(
-                    //   buttonText: "Send",
-                    //   color: Colors.blue,
-                    //   textColor: Color(0xFF365486),
-                    // )
                     RaisedButton(
                       onPressed: () {},
                       textColor: Colors.white,
@@ -178,18 +174,18 @@ class MoneyInput extends StatelessWidget {
         decoration: InputDecoration(
       prefixIcon: Icon(
         Icons.attach_money,
-        color: Color(0xFF365486),
+        color: kAllColor,
         size: 37,
       ),
       border: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Color(0xFF365486),
+          color: kAllColor,
         ),
         borderRadius: BorderRadius.circular(20.0),
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Color(0xFF365486),
+          color: kAllColor,
         ),
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -221,7 +217,7 @@ class NumButton extends StatelessWidget {
             child: Text(buttonText,
                 style: GoogleFonts.manrope(
                   textStyle: TextStyle(
-                    color: textColor,
+                    color: kAllColor,
                     fontSize: 24,
                   ),
                 ))),
