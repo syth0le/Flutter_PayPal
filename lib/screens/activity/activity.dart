@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paypal/constants.dart';
 
-class ContactsScreen extends StatelessWidget {
+class ActivityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: new Text("Contacts",
+          title: new Text("Activity",
               style: GoogleFonts.manrope(
                   textStyle: TextStyle(
                       color: kAllColor, fontWeight: FontWeight.w600))),
@@ -24,7 +24,10 @@ class ContactsScreen extends StatelessWidget {
               color: kAllColor),
           actions: <Widget>[
             IconButton(
-              icon: const Icon(Icons.add),
+              icon: SvgPicture.asset(
+                'assets/icons/find_contacts.svg',
+                color: kAllColor,
+              ),
               color: kAllColor,
               onPressed: () {},
             ),
@@ -42,30 +45,52 @@ class ContactsScreen extends StatelessWidget {
                 (MediaQuery.of(context).size.height / 10),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 20),
-                  child: ContactsInput(),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(0, 5, 0, 20),
+                //   child: ContactsInput(),
+                // ),
                 Expanded(
                   child: ListView(
                     scrollDirection: Axis.vertical,
                     children: <Widget>[
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
-                      ContactContainer(),
+                      DateActivity("Today"),
+                      ContactContainer(
+                          activityContainerText: "Mike Rine",
+                          icon: "M",
+                          timer: "1 minute ago",
+                          activityType: "people",
+                          sumOfActivity: "+,250"),
+                      ContactContainer(
+                          activityContainerText: "Google Drive",
+                          icon: "Google",
+                          timer: "2 hours ago",
+                          activityType: "shop",
+                          sumOfActivity: "-,138.5"),
+                      ContactContainer(
+                          activityContainerText: "Casey Smith",
+                          icon: "C",
+                          timer: "9 hours ago",
+                          activityType: "people",
+                          sumOfActivity: "+,531"),
+                      DateActivity("Yesterday"),
+                      ContactContainer(
+                          activityContainerText: "Apple Store",
+                          icon: "Apple",
+                          timer: "Yesterday at 11:45 AM",
+                          activityType: "shop",
+                          sumOfActivity: "-,250"),
+                      ContactContainer(
+                          activityContainerText: "Pizza Delivery",
+                          icon: "pizza",
+                          timer: "Yesterday at 2:30 PM",
+                          activityType: "shop",
+                          sumOfActivity: "-,58.9"),
+                      ContactContainer(
+                          activityContainerText: "Amazon.com",
+                          icon: "Amazon",
+                          timer: "Yesterday at 6:28 PM",
+                          activityType: "shop",
+                          sumOfActivity: "-,300"),
                     ],
                   ),
                 )
@@ -115,10 +140,38 @@ class ContactsScreen extends StatelessWidget {
   }
 }
 
+class DateActivity extends StatelessWidget {
+  final String date;
+
+  DateActivity(this.date);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
+      child: Text(date,
+          style: GoogleFonts.manrope(
+            textStyle: TextStyle(
+                fontSize: 12.0,
+                color: Color.fromRGBO(155, 155, 155, 1.0),
+                fontWeight: FontWeight.w400),
+          )),
+    );
+  }
+}
+
 class ContactContainer extends StatelessWidget {
-  const ContactContainer({
-    Key key,
-  }) : super(key: key);
+  final String activityContainerText;
+  String icon;
+  final String timer;
+  final String activityType;
+  final String sumOfActivity;
+  ContactContainer(
+      {this.activityContainerText,
+      this.icon,
+      this.timer,
+      this.activityType,
+      this.sumOfActivity});
 
   @override
   Widget build(BuildContext context) {
@@ -142,27 +195,28 @@ class ContactContainer extends StatelessWidget {
             ],
           ),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
                 child: Container(
-                  height: 50,
-                  width: 48,
+                  height: 32,
+                  width: 32,
                   decoration: new BoxDecoration(
                     color: Color(0xFFF5F7FA),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: new Center(
-                    child: new Text(
-                      "A",
-                      style: GoogleFonts.manrope(
-                          textStyle: TextStyle(
-                              fontSize: 17,
-                              color: kAllColor,
-                              fontWeight: FontWeight.w700)),
-                    ),
-                  ),
+                      child: activityType == "people"
+                          ? Text(
+                              icon,
+                              style: GoogleFonts.manrope(
+                                  textStyle: TextStyle(
+                                      fontSize: 17,
+                                      color: kAllColor,
+                                      fontWeight: FontWeight.w700)),
+                            )
+                          : SvgPicture.asset('assets/icons/$icon.svg')),
                 ),
               ),
               Padding(
@@ -173,14 +227,14 @@ class ContactContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Ann Nielsen',
+                    Text(activityContainerText,
                         style: GoogleFonts.manrope(
                           textStyle: TextStyle(
                               fontSize: 16.0,
                               color: kAllColor,
                               fontWeight: FontWeight.w400),
                         )),
-                    Text('nielsen.ann@gmail.com',
+                    Text(timer,
                         style: GoogleFonts.manrope(
                           textStyle: TextStyle(
                               fontSize: 12.0,
@@ -190,81 +244,27 @@ class ContactContainer extends StatelessWidget {
                   ],
                 )),
               ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 10, 8),
+                  child: Text(
+                    sumOfActivity.split(",")[0] +
+                        '\$' +
+                        sumOfActivity.split(",")[1],
+                    style: GoogleFonts.manrope(
+                      textStyle: TextStyle(
+                          fontSize: 13.0,
+                          color: activityType == "people"
+                              ? Color(0xFF37D39B)
+                              : Color(0xFF314261),
+                          fontWeight: FontWeight.w600),
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              )
             ],
           )),
     );
   }
 }
-
-class ContactsInput extends StatelessWidget {
-  const ContactsInput({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-        style: TextStyle(fontSize: 12, color: kPrimaryColor),
-        decoration: InputDecoration(
-            prefixIcon: Padding(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-              child: SizedBox(
-                width: 25,
-                height: 25,
-                child: SvgPicture.asset(
-                  'assets/icons/find_contacts.svg',
-                  color: kPrimaryColor,
-                ),
-              ),
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: kAllColor,
-              ),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: kPrimaryColor,
-              ),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color(0xFF0070BA),
-              ),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            hintText: 'Enter a name or e-mail'));
-  }
-}
-
-// bottomNavigationBar : new BottomNavigationBar(
-//         currentIndex: index,
-//         onTap: (int index) {
-//           setState(() {
-//             this.index = index;
-//           }
-//           );
-//           _navigateToScreens(index);
-//         },
-//         type: BottomNavigationBarType.fixed,
-//         items: [
-//           new BottomNavigationBarItem(
-//               backgroundColor: Colors.white,
-//               icon: index==0?new Image.asset('images/1.0x/icon1.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route1", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0))),
-//           new BottomNavigationBarItem(
-//               icon: index==1?new Image.asset('images/1.0x/icon2.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route2", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0))),
-//           new BottomNavigationBarItem(
-//               icon: index==2?new Image.asset('images/1.0x/icon3.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route3", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0),)),
-//           new BottomNavigationBarItem(
-//               icon: index==3?new Image.asset('images/1.0x/icon4.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route4", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0),))
-//         ])

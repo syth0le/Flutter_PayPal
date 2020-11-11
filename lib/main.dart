@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paypal/screens/activity/activity.dart';
+import 'package:paypal/screens/activity/try.dart';
 import 'package:paypal/screens/autorization/autorization.dart';
 import 'package:paypal/screens/contacts/contacts.dart';
 import 'package:paypal/screens/sendMoney/components/sendMoney.dart';
@@ -33,7 +35,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: SendMoneyScreen(),
       // home: AutorizationScreen(),
-      home: ContactsScreen(),
+      // home: ContactsScreen(),
+      // home: ActivityScreen(),
+      home: SegmentedControl(),
     );
   }
 }
