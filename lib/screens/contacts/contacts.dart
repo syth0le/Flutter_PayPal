@@ -238,33 +238,3 @@ class ContactsInput extends StatelessWidget {
             hintText: 'Enter a name or e-mail'));
   }
 }
-
-// bottomNavigationBar : new BottomNavigationBar(
-//         currentIndex: index,
-//         onTap: (int index) {
-//           setState(() {
-//             this.index = index;
-//           }
-//           );
-//           _navigateToScreens(index);
-//         },
-//         type: BottomNavigationBarType.fixed,
-//         items: [
-//           new BottomNavigationBarItem(
-//               backgroundColor: Colors.white,
-//               icon: index==0?new Image.asset('images/1.0x/icon1.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route1", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0))),
-//           new BottomNavigationBarItem(
-//               icon: index==1?new Image.asset('images/1.0x/icon2.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route2", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0))),
-//           new BottomNavigationBarItem(
-//               icon: index==2?new Image.asset('images/1.0x/icon3.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route3", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0),)),
-//           new BottomNavigationBarItem(
-//               icon: index==3?new Image.asset('images/1.0x/icon4.png'):new Image.asset('images/1.0x/newIcon.png'),
-//               title: new Text("Route4", style: new TextStyle(
-//                   color: const Color(0xFF06244e), fontSize: 14.0),))
-//         ])

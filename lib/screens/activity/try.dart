@@ -11,48 +11,69 @@ class SegmentedControl extends StatefulWidget {
 
 class _SegmentedControlState extends State<SegmentedControl> {
   int segmentedControlValue = 0;
+//   List<List<String>> activities = List<String>["Mike Rine","M","1 minute ago","people","+,250"],
+// List<String>[];
+
+  Map<String, List<List>> arguments = {
+    'Today': [
+      ["Mike Rine", "M", "1 minute ago", "people", "+,250"],
+      ["Google Drive", "Google", "2 hours ago", "shop", "-,138.5"],
+      ["Casey Smith", "C", "9 hours ago", "people", "+,531"]
+    ],
+    'Yesterday': [
+      ["Apple Store", "Apple", "Yesterday at 11:45 AM", "shop", "-,250"],
+      ["Pizza Delivery", "pizza", "Yesterday at 2:30 PM", "shop", "-,58.9"],
+      ["Amazon.com", "Amazon", "Yesterday at 6:28 PM", "shop", "-,300"],
+      ["Viktor Dima", "V", "Yesterday at 6:59 PM", "people", "+,550"],
+    ]
+  };
 
   Widget segmentedControl() {
-    return Container(
-      width: 300,
-      child: CupertinoSlidingSegmentedControl(
-          groupValue: segmentedControlValue,
-          thumbColor: Color(0xFF005EA6),
-          backgroundColor: Color(0xFFF5F7FA),
-          children: <int, Widget>{
-            0: Text('All',
-                style: GoogleFonts.manrope(
-                  textStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: segmentedControlValue == 0
-                          ? Colors.white
-                          : kPrimaryColor,
-                      fontWeight: FontWeight.w400),
-                )),
-            1: Text('Income',
-                style: GoogleFonts.manrope(
-                  textStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: segmentedControlValue == 1
-                          ? Colors.white
-                          : kPrimaryColor,
-                      fontWeight: FontWeight.w400),
-                )),
-            2: Text('Outcome',
-                style: GoogleFonts.manrope(
-                  textStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: segmentedControlValue == 2
-                          ? Colors.white
-                          : kPrimaryColor,
-                      fontWeight: FontWeight.w400),
-                )),
-          },
-          onValueChanged: (value) {
-            setState(() {
-              segmentedControlValue = value;
-            });
-          }),
+    return Center(
+      child: Container(
+        alignment: Alignment(0.0, 0.0),
+        color: Colors.amber,
+        height: 50,
+        width: 300,
+        child: CupertinoSlidingSegmentedControl(
+            groupValue: segmentedControlValue,
+            thumbColor: Color(0xFF005EA6),
+            backgroundColor: Color(0xFFF5F7FA),
+            children: <int, Widget>{
+              0: Text('All',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 0
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+              1: Text('Income',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 1
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+              2: Text('Outcome',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 2
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+            },
+            onValueChanged: (value) {
+              setState(() {
+                segmentedControlValue = value;
+              });
+            }),
+      ),
     );
   }
 
@@ -65,7 +86,7 @@ class _SegmentedControlState extends State<SegmentedControl> {
                   textStyle: TextStyle(
                       color: kAllColor, fontWeight: FontWeight.w600)))),
       body: Padding(
-        padding: const EdgeInsets.only(top: 30.0, left: 50),
+        padding: const EdgeInsets.only(top: 30.0),
         child: segmentedControl(),
       ),
     );

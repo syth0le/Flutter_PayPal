@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
       // home: SendMoneyScreen(),
       // home: AutorizationScreen(),
       // home: ContactsScreen(),
-      // home: ActivityScreen(),
-      home: SegmentedControl(),
+      home: ActivityScreen(),
+      // home: SegmentedControl(),
     );
   }
 }

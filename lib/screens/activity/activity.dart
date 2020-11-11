@@ -4,7 +4,65 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paypal/constants.dart';
 
-class ActivityScreen extends StatelessWidget {
+class ActivityScreen extends StatefulWidget {
+  @override
+  _ActivityScreenState createState() => _ActivityScreenState();
+}
+
+class _ActivityScreenState extends State<ActivityScreen> {
+  int segmentedControlValue = 0;
+
+  int index = 0;
+
+  Widget segmentedControl() {
+    return Center(
+      child: Container(
+        alignment: Alignment(0.0, 0.0),
+        height: 50,
+        width: 300,
+        child: CupertinoSlidingSegmentedControl(
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            groupValue: segmentedControlValue,
+            thumbColor: Color(0xFF005EA6),
+            backgroundColor: Color(0xFFF5F7FA),
+            children: <int, Widget>{
+              0: Text('All',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 0
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+              1: Text('Income',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 1
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+              2: Text('Outcome',
+                  style: GoogleFonts.manrope(
+                    textStyle: TextStyle(
+                        fontSize: 16.0,
+                        color: segmentedControlValue == 2
+                            ? Colors.white
+                            : kPrimaryColor,
+                        fontWeight: FontWeight.w400),
+                  )),
+            },
+            onValueChanged: (value) {
+              setState(() {
+                segmentedControlValue = value;
+              });
+            }),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,65 +91,38 @@ class ActivityScreen extends StatelessWidget {
             ),
           ],
           backgroundColor: Colors.white,
+          bottom: PreferredSize(
+            preferredSize: Size(double.infinity, 55.0),
+            child: Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 10.0),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 15.0,
+                  ),
+                  Expanded(
+                    child: segmentedControl(),
+                  ),
+                  SizedBox(
+                    width: 15.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
         body: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            // color: Colors.red,
-            // height: MediaQuery.of(context).size.height -
-            //     (MediaQuery.of(context).size.height / 6.5),
             height: double.infinity,
             width: MediaQuery.of(context).size.width -
                 (MediaQuery.of(context).size.height / 10),
             child: Column(
               children: [
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(0, 5, 0, 20),
-                //   child: ContactsInput(),
-                // ),
                 Expanded(
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: <Widget>[
-                      DateActivity("Today"),
-                      ContactContainer(
-                          activityContainerText: "Mike Rine",
-                          icon: "M",
-                          timer: "1 minute ago",
-                          activityType: "people",
-                          sumOfActivity: "+,250"),
-                      ContactContainer(
-                          activityContainerText: "Google Drive",
-                          icon: "Google",
-                          timer: "2 hours ago",
-                          activityType: "shop",
-                          sumOfActivity: "-,138.5"),
-                      ContactContainer(
-                          activityContainerText: "Casey Smith",
-                          icon: "C",
-                          timer: "9 hours ago",
-                          activityType: "people",
-                          sumOfActivity: "+,531"),
-                      DateActivity("Yesterday"),
-                      ContactContainer(
-                          activityContainerText: "Apple Store",
-                          icon: "Apple",
-                          timer: "Yesterday at 11:45 AM",
-                          activityType: "shop",
-                          sumOfActivity: "-,250"),
-                      ContactContainer(
-                          activityContainerText: "Pizza Delivery",
-                          icon: "pizza",
-                          timer: "Yesterday at 2:30 PM",
-                          activityType: "shop",
-                          sumOfActivity: "-,58.9"),
-                      ContactContainer(
-                          activityContainerText: "Amazon.com",
-                          icon: "Amazon",
-                          timer: "Yesterday at 6:28 PM",
-                          activityType: "shop",
-                          sumOfActivity: "-,300"),
-                    ],
+                  child: ScrollConfiguration(
+                    behavior: MyCustomScroll(),
+                    child: ActivityList(),
                   ),
                 )
               ],
@@ -99,44 +130,109 @@ class ActivityScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: new BottomNavigationBar(
-          //   currentIndex: index,
-          // onTap: (int index) {
-          //   setState(() {
-          //     this.index = index;
-          //   }
-          //   );
-          //   _navigateToScreens(index);
-          // },
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: index,
+          onTap: (int index) {
+            setState(() {
+              this.index = index;
+            });
+            // _navigateToScreens(index);
+          },
           type: BottomNavigationBarType.shifting,
           items: [
             BottomNavigationBarItem(
-              title: Text(
-                'Home',
-                textAlign: TextAlign.right,
-                style: TextStyle(fontWeight: FontWeight.w400, color: kAllColor),
-              ),
-              icon: SvgPicture.asset(
-                'assets/icons/home_bottom_bar.svg',
-                // color: kTextColor,
-              ),
+              title: Text(''),
+              icon: index == 0
+                  ? new SvgPicture.asset(
+                      'assets/icons/home_bottom_bar_Active.svg')
+                  : new SvgPicture.asset('assets/icons/home_bottom_bar.svg'),
             ),
             BottomNavigationBarItem(
-              title: Text('Contacts'),
-              icon: SvgPicture.asset('assets/icons/users_bottom_bar.svg'),
+              title: Text(''),
+              icon: index == 1
+                  ? new SvgPicture.asset(
+                      'assets/icons/users_bottom_bar_Active.svg')
+                  : new SvgPicture.asset('assets/icons/users_bottom_bar.svg'),
             ),
             BottomNavigationBarItem(
-              title: Text('Wallet'),
-              icon: SvgPicture.asset('assets/icons/wallet_bottom_bar.svg'),
+              title: Text(''),
+              icon: index == 2
+                  ? new SvgPicture.asset(
+                      'assets/icons/wallet_bottom_bar_Active.svg')
+                  : new SvgPicture.asset('assets/icons/wallet_bottom_bar.svg'),
             ),
             BottomNavigationBarItem(
-              title: Text('Settings'),
-              icon: SvgPicture.asset('assets/icons/setting_bottom_bar.svg'),
+              title: Text(''),
+              icon: index == 3
+                  ? new SvgPicture.asset(
+                      'assets/icons/setting_bottom_bar_Active.svg')
+                  : new SvgPicture.asset('assets/icons/setting_bottom_bar.svg'),
             ),
           ],
           selectedItemColor: kTextColor,
           unselectedItemColor: kAllColor,
           // onTap: _onItemTapped,
         ));
+  }
+}
+
+class ActivityList extends StatelessWidget {
+  const ActivityList({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: <Widget>[
+        DateActivity("Today"),
+        ContactContainer(
+            activityContainerText: "Mike Rine",
+            icon: "M",
+            timer: "1 minute ago",
+            activityType: "people",
+            sumOfActivity: "+,250"),
+        ContactContainer(
+            activityContainerText: "Google Drive",
+            icon: "Google",
+            timer: "2 hours ago",
+            activityType: "shop",
+            sumOfActivity: "-,138.5"),
+        ContactContainer(
+            activityContainerText: "Casey Smith",
+            icon: "C",
+            timer: "9 hours ago",
+            activityType: "people",
+            sumOfActivity: "+,531"),
+        DateActivity("Yesterday"),
+        ContactContainer(
+            activityContainerText: "Apple Store",
+            icon: "Apple",
+            timer: "Yesterday at 11:45 AM",
+            activityType: "shop",
+            sumOfActivity: "-,250"),
+        ContactContainer(
+            activityContainerText: "Pizza Delivery",
+            icon: "pizza",
+            timer: "Yesterday at 2:30 PM",
+            activityType: "shop",
+            sumOfActivity: "-,58.9"),
+        ContactContainer(
+            activityContainerText: "Amazon.com",
+            icon: "Amazon",
+            timer: "Yesterday at 6:28 PM",
+            activityType: "shop",
+            sumOfActivity: "-,300"),
+        ContactContainer(
+            activityContainerText: "Viktor Dima",
+            icon: "V",
+            timer: "Yesterday at 6:59 PM",
+            activityType: "people",
+            sumOfActivity: "+,550"),
+      ],
+    );
   }
 }
 
@@ -266,5 +362,13 @@ class ContactContainer extends StatelessWidget {
             ],
           )),
     );
+  }
+}
+
+class MyCustomScroll extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
