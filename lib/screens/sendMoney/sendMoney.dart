@@ -33,7 +33,7 @@ class SendMoneyScreen extends StatelessWidget {
                 Icons.arrow_back,
                 color: kAllColor,
               ),
-              onPressed: null,
+              onPressed: () => Navigator.of(context).pop(),
               color: Color(0xFF243656)),
           backgroundColor: Colors.white,
         ),
