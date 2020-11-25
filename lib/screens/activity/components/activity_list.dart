@@ -67,6 +67,90 @@ class ActivityListAll extends StatelessWidget {
   }
 }
 
+class ActivityListIncome extends StatelessWidget {
+  const ActivityListIncome({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 1000),
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          DateActivity("Today"),
+          ContactContainer(
+              activityContainerText: "Mike Rine",
+              icon: "M",
+              timer: "1 minute ago",
+              activityType: "people",
+              sumOfActivity: "+,250"),
+          ContactContainer(
+              activityContainerText: "Casey Smith",
+              icon: "C",
+              timer: "9 hours ago",
+              activityType: "people",
+              sumOfActivity: "+,531"),
+          DateActivity("Yesterday"),
+          ContactContainer(
+              activityContainerText: "Viktor Dima",
+              icon: "V",
+              timer: "Yesterday at 6:59 PM",
+              activityType: "people",
+              sumOfActivity: "+,550"),
+        ],
+      ),
+    );
+  }
+}
+
+class ActivityListOutcome extends StatelessWidget {
+  const ActivityListOutcome({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 1000),
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          DateActivity("Today"),
+          ContactContainer(
+              activityContainerText: "Google Drive",
+              icon: "Google",
+              timer: "2 hours ago",
+              activityType: "shop",
+              sumOfActivity: "-,138.5"),
+          DateActivity("Yesterday"),
+          ContactContainer(
+              activityContainerText: "Apple Store",
+              icon: "Apple",
+              timer: "Yesterday at 11:45 AM",
+              activityType: "shop",
+              sumOfActivity: "-,250"),
+          ContactContainer(
+              activityContainerText: "Pizza Delivery",
+              icon: "pizza",
+              timer: "Yesterday at 2:30 PM",
+              activityType: "shop",
+              sumOfActivity: "-,58.9"),
+          ContactContainer(
+              activityContainerText: "Amazon.com",
+              icon: "Amazon",
+              timer: "Yesterday at 6:28 PM",
+              activityType: "shop",
+              sumOfActivity: "-,300"),
+        ],
+      ),
+    );
+  }
+}
+
 class ActivityList extends StatefulWidget {
   @override
   _ActivityListState createState() => _ActivityListState();

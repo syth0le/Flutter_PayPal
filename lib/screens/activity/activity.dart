@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paypal/constants.dart';
 
+import '../../components.dart';
 import 'components/activity_list.dart';
 
 class ActivityScreen extends StatefulWidget {
@@ -123,22 +124,17 @@ class _ActivityScreenState extends State<ActivityScreen> {
             children: [
               Expanded(
                 child: ScrollConfiguration(
-                  behavior: MyCustomScroll(),
-                  child: ActivityListAll(),
-                ),
+                    behavior: MyCustomScroll(),
+                    child: (segmentedControlValue == 0)
+                        ? ActivityListAll()
+                        : (segmentedControlValue == 1)
+                            ? ActivityListIncome()
+                            : ActivityListOutcome()),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-class MyCustomScroll extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
   }
 }

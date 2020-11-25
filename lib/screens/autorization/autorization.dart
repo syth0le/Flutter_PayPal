@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paypal/navigator.dart';
 
+import '../../components.dart';
+
 class AutorizationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,29 +20,32 @@ class AutorizationScreen extends StatelessWidget {
           // color: Colors.tealAccent,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: ListView(children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 75, 0, 75),
-            child: Image.asset('assets/images/paypal.png'),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-            child: AutorizationInput('Enter your name or e-mail'),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-            child: AutorizationInput('Password'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: LogInButton(),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-            child: ClickableText("Having trouble logging in?"),
-          ),
-          ClickableText("Sign up")
-        ]),
+        child: ScrollConfiguration(
+          behavior: MyCustomScroll(),
+          child: ListView(children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 75, 0, 75),
+              child: Image.asset('assets/images/paypal.png'),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: AutorizationInput('Enter your name or e-mail'),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: AutorizationInput('Password'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: LogInButton(),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+              child: ClickableText("Having trouble logging in?"),
+            ),
+            ClickableText("Sign up")
+          ]),
+        ),
       )),
     );
   }

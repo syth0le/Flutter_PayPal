@@ -6,6 +6,8 @@ import 'package:paypal/constants.dart';
 import 'package:paypal/screens/autorization/autorization.dart';
 import 'package:paypal/screens/sendMoney/sendMoney.dart';
 
+import '../../components.dart';
+
 class ContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,26 +57,29 @@ class ContactsScreen extends StatelessWidget {
                 child: ContactsInput(),
               ),
               Expanded(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: <Widget>[
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                    ContactContainer(),
-                  ],
+                child: ScrollConfiguration(
+                  behavior: MyCustomScroll(),
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: <Widget>[
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                      ContactContainer(),
+                    ],
+                  ),
                 ),
               )
             ],
