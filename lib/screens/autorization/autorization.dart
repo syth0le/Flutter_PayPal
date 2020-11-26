@@ -93,6 +93,8 @@ class LogInButton extends StatelessWidget {
       padding: const EdgeInsets.all(0.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Container(
+        width: MediaQuery.of(context).size.width -
+            (MediaQuery.of(context).size.height / 10),
         decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: <Color>[
