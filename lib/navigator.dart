@@ -5,6 +5,7 @@ import 'package:paypal/screens/activity/activity.dart';
 import 'package:paypal/screens/autorization/autorization.dart';
 import 'package:paypal/screens/contacts/contacts.dart';
 import 'package:paypal/screens/sendMoney/sendMoney.dart';
+import 'package:paypal/screens/wallet/wallet_screen.dart';
 
 class BottomBar extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _BottomBar extends State<BottomBar> {
   final List<Widget> _children = [
     ActivityScreen(),
     ContactsScreen(),
-    SendMoneyScreen(),
+    WalletScreen(),
     AutorizationScreen(),
   ];
 
