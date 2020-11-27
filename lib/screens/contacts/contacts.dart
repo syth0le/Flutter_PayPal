@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:paypal/constants.dart';
 import 'package:paypal/screens/autorization/autorization.dart';
 import 'package:paypal/screens/sendMoney/sendMoney.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 import '../../components.dart';
 
@@ -103,7 +104,9 @@ class ContactContainer extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SendMoneyScreen()),
+            SwipeablePageRoute(
+                onlySwipeFromEdge: true,
+                builder: (BuildContext context) => SendMoneyScreen()),
           );
         },
         child: Container(

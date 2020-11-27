@@ -4,6 +4,7 @@ import 'package:paypal/constants.dart';
 import 'package:paypal/screens/activity/activity.dart';
 import 'package:paypal/screens/autorization/autorization.dart';
 import 'package:paypal/screens/contacts/contacts.dart';
+import 'package:paypal/screens/home/home_screen.dart';
 import 'package:paypal/screens/sendMoney/sendMoney.dart';
 import 'package:paypal/screens/wallet/wallet_screen.dart';
 
@@ -15,10 +16,10 @@ class BottomBar extends StatefulWidget {
 class _BottomBar extends State<BottomBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    ActivityScreen(),
+    HomeScreen(),
     ContactsScreen(),
     WalletScreen(),
-    AutorizationScreen(),
+    ActivityScreen(),
   ];
 
   void onTappedBar(int index) {

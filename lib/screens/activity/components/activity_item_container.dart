@@ -23,6 +23,9 @@ class ContactContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
       child: Container(
+          width: MediaQuery.of(context).size.width -
+              (MediaQuery.of(context).size.height / 10),
+          // height: 64,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
