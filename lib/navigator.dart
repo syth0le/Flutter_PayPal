@@ -32,7 +32,7 @@ class _BottomBar extends State<BottomBar> {
   Widget build(BuildContext context) {
     return (Scaffold(
         body: _children[_currentIndex],
-        bottomNavigationBar: new BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
           currentIndex: _currentIndex,

@@ -143,7 +143,9 @@ class SendMoneyScreen extends StatelessWidget {
                       child: Container(
                         decoration: const BoxDecoration(
                             gradient: LinearGradient(
-                              colors: <Color>[
+                              begin: Alignment.topLeft,
+                              end: Alignment(0.8, 0.0),
+                              colors: [
                                 Color(0xFF0070BA),
                                 Color(0xFF1546A0),
                               ],
@@ -151,9 +153,14 @@ class SendMoneyScreen extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20.0))),
                         padding: const EdgeInsets.fromLTRB(120, 20, 120, 20),
-                        child: Text('Send',
-                            style: GoogleFonts.manrope(
-                                textStyle: TextStyle(fontSize: 16))),
+                        child: Text(
+                          'Send',
+                          style: GoogleFonts.manrope(
+                            textStyle: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
                       ),
                     )
                   ],

@@ -24,12 +24,16 @@ class HomeScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: new AssetImage('assets/images/appBarImg.png'),
-                fit: BoxFit.cover),
+              image: new AssetImage('assets/images/appBarImg.png'),
+              fit: BoxFit.cover,
+            ),
             color: Colors.blue,
-            borderRadius: BorderRadius.only(bottomRight: Radius.circular(41)),
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(41),
+            ),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
@@ -44,15 +48,66 @@ class HomeScreen extends StatelessWidget {
                         color: Color(0xFFF5F7FA),
                         borderRadius: BorderRadius.circular(25),
                       ),
-                      child: Image.asset('assets/images/face.png',
-                          fit: BoxFit.fill),
+                      child: Image.asset(
+                        'assets/images/face.png',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ],
                 ),
               ),
-              Row(),
-              Row(),
-              Row()
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Row(
+                  children: [
+                    Opacity(
+                      opacity: 0.5,
+                      child: Text(
+                        "Hello, Vadim!",
+                        style: GoogleFonts.manrope(
+                          textStyle: TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 10),
+                child: Row(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "\$ 272.30",
+                          style: GoogleFonts.manrope(
+                            textStyle: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontSize: 40.0,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 60, 0),
+                          child: Text(
+                            "Your Balance",
+                            style: GoogleFonts.manrope(
+                              textStyle: TextStyle(
+                                  color: Color(0xFFFFFFFF),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -69,6 +124,42 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   CardInfo(),
+                  ContactContainer(
+                      activityContainerText: "Mike Rine",
+                      icon: "M",
+                      timer: "1 minute ago",
+                      activityType: "people",
+                      sumOfActivity: "+,250"),
+                  ContactContainer(
+                      activityContainerText: "Google Drive",
+                      icon: "Google",
+                      timer: "2 hours ago",
+                      activityType: "shop",
+                      sumOfActivity: "-,138.5"),
+                  ContactContainer(
+                      activityContainerText: "Casey Smith",
+                      icon: "C",
+                      timer: "9 hours ago",
+                      activityType: "people",
+                      sumOfActivity: "+,531"),
+                  ContactContainer(
+                      activityContainerText: "Mike Rine",
+                      icon: "M",
+                      timer: "1 minute ago",
+                      activityType: "people",
+                      sumOfActivity: "+,250"),
+                  ContactContainer(
+                      activityContainerText: "Google Drive",
+                      icon: "Google",
+                      timer: "2 hours ago",
+                      activityType: "shop",
+                      sumOfActivity: "-,138.5"),
+                  ContactContainer(
+                      activityContainerText: "Casey Smith",
+                      icon: "C",
+                      timer: "9 hours ago",
+                      activityType: "people",
+                      sumOfActivity: "+,531"),
                   ContactContainer(
                       activityContainerText: "Mike Rine",
                       icon: "M",
@@ -136,8 +227,9 @@ class CardMenu extends StatelessWidget {
         Navigator.push(
           context,
           SwipeablePageRoute(
-              onlySwipeFromEdge: true,
-              builder: (BuildContext context) => SendMoneyScreen()),
+            onlySwipeFromEdge: true,
+            builder: (BuildContext context) => SendMoneyScreen(),
+          ),
         );
       },
       child: new Padding(
@@ -186,17 +278,19 @@ class CardMenu extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 15, 0, 15),
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Text("$text".split(' ').join("\n"),
-                        style: GoogleFonts.manrope(
-                          textStyle: TextStyle(
-                              fontSize: 12.0,
-                              color: cardColor == 1
-                                  ? kBackgroundColor
-                                  : Color(0xFF005EA6),
-                              fontWeight: cardColor == 1
-                                  ? FontWeight.w600
-                                  : FontWeight.w500),
-                        )),
+                    child: Text(
+                      "$text".split(' ').join("\n"),
+                      style: GoogleFonts.manrope(
+                        textStyle: TextStyle(
+                            fontSize: 12.0,
+                            color: cardColor == 1
+                                ? kBackgroundColor
+                                : Color(0xFF005EA6),
+                            fontWeight: cardColor == 1
+                                ? FontWeight.w600
+                                : FontWeight.w500),
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -221,36 +315,42 @@ class CardInfo extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Activity",
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: kAllColor,
-                        fontWeight: FontWeight.w600),
-                  )),
+              Text(
+                "Activity",
+                style: GoogleFonts.manrope(
+                  textStyle: TextStyle(
+                      fontSize: 16.0,
+                      color: kAllColor,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
               GestureDetector(
                 // When the child is tapped, show a snackbar.
                 onTap: () {
                   Navigator.push(
                     context,
                     SwipeablePageRoute(
-                        onlySwipeFromEdge: true,
-                        builder: (BuildContext context) => ActivityScreen()),
+                      onlySwipeFromEdge: true,
+                      builder: (BuildContext context) => ActivityScreen(),
+                    ),
                   );
                 },
                 child: Container(
-                    // color: Colors.amber,
-                    height: 35,
-                    width: 60,
-                    child: Center(
-                      child: Text("View All",
-                          style: GoogleFonts.manrope(
-                            textStyle: TextStyle(
-                                fontSize: 12.0,
-                                color: Color.fromRGBO(155, 155, 155, 1.0),
-                                fontWeight: FontWeight.w400),
-                          )),
-                    )),
+                  // color: Colors.amber,
+                  height: 35,
+                  width: 60,
+                  child: Center(
+                    child: Text(
+                      "View All",
+                      style: GoogleFonts.manrope(
+                        textStyle: TextStyle(
+                            fontSize: 12.0,
+                            color: Color.fromRGBO(155, 155, 155, 1.0),
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ),
+                ),
               )
             ],
           ),
