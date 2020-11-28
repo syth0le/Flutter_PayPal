@@ -36,43 +36,52 @@ class _SegmentedControlState extends State<SegmentedControl> {
         height: 50,
         width: 300,
         child: CupertinoSlidingSegmentedControl(
-            groupValue: segmentedControlValue,
-            thumbColor: Color(0xFF005EA6),
-            backgroundColor: Color(0xFFF5F7FA),
-            children: <int, Widget>{
-              0: Text('All',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 0
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-              1: Text('Income',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 1
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-              2: Text('Outcome',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 2
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-            },
-            onValueChanged: (value) {
-              setState(() {
+          groupValue: segmentedControlValue,
+          thumbColor: Color(0xFF005EA6),
+          backgroundColor: Color(0xFFF5F7FA),
+          children: <int, Widget>{
+            0: Text(
+              'All',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 0 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            1: Text(
+              'Income',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 1 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            2: Text(
+              'Outcome',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 2 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          },
+          onValueChanged: (value) {
+            setState(
+              () {
                 segmentedControlValue = value;
-              });
-            }),
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -81,10 +90,13 @@ class _SegmentedControlState extends State<SegmentedControl> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: new Text("Activity",
-              style: GoogleFonts.manrope(
-                  textStyle: TextStyle(
-                      color: kAllColor, fontWeight: FontWeight.w600)))),
+        title: new Text(
+          "Activity",
+          style: GoogleFonts.manrope(
+            textStyle: TextStyle(color: kAllColor, fontWeight: FontWeight.w600),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 30.0),
         child: segmentedControl(),
@@ -114,7 +126,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Center(
       child: Text(
         "Text: $yourText",
-        style: TextStyle(color: kAllColor, fontSize: 20.0),
+        style: TextStyle(
+          color: kAllColor,
+          fontSize: 20.0,
+        ),
       ),
     );
   }
@@ -152,9 +167,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     backgroundColor: Color(0xFFF5F7FA),
                     groupValue: theriGroupVakue,
                     onValueChanged: (changeFromGroupValue) {
-                      setState(() {
-                        theriGroupVakue = changeFromGroupValue;
-                      });
+                      setState(
+                        () {
+                          theriGroupVakue = changeFromGroupValue;
+                        },
+                      );
                     },
                     children: logoWidgets,
                   ),

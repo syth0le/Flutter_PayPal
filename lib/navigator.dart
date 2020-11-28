@@ -30,52 +30,55 @@ class _BottomBar extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return (Scaffold(
-        body: _children[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          currentIndex: _currentIndex,
-          onTap: (int index) {
-            setState(() {
+    return Scaffold(
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(
+            () {
               this._currentIndex = index;
-            });
-            // _navigateToScreens(index);
-          },
-          type: BottomNavigationBarType.shifting,
-          items: [
-            BottomNavigationBarItem(
-              title: Text(''),
-              icon: _currentIndex == 0
-                  ? new SvgPicture.asset(
-                      'assets/icons/home_bottom_bar_Active.svg')
-                  : new SvgPicture.asset('assets/icons/home_bottom_bar.svg'),
-            ),
-            BottomNavigationBarItem(
-              title: Text(''),
-              icon: _currentIndex == 1
-                  ? new SvgPicture.asset(
-                      'assets/icons/users_bottom_bar_Active.svg')
-                  : new SvgPicture.asset('assets/icons/users_bottom_bar.svg'),
-            ),
-            BottomNavigationBarItem(
-              title: Text(''),
-              icon: _currentIndex == 2
-                  ? new SvgPicture.asset(
-                      'assets/icons/wallet_bottom_bar_Active.svg')
-                  : new SvgPicture.asset('assets/icons/wallet_bottom_bar.svg'),
-            ),
-            BottomNavigationBarItem(
-              title: Text(''),
-              icon: _currentIndex == 3
-                  ? new SvgPicture.asset(
-                      'assets/icons/setting_bottom_bar_Active.svg')
-                  : new SvgPicture.asset('assets/icons/setting_bottom_bar.svg'),
-            ),
-          ],
-          selectedItemColor: kTextColor,
-          unselectedItemColor: kAllColor,
-          // onTap: _onItemTapped,
-        )));
+            },
+          );
+          // _navigateToScreens(index);
+        },
+        type: BottomNavigationBarType.shifting,
+        items: [
+          BottomNavigationBarItem(
+            title: Text(''),
+            icon: _currentIndex == 0
+                ? new SvgPicture.asset(
+                    'assets/icons/home_bottom_bar_Active.svg')
+                : new SvgPicture.asset('assets/icons/home_bottom_bar.svg'),
+          ),
+          BottomNavigationBarItem(
+            title: Text(''),
+            icon: _currentIndex == 1
+                ? new SvgPicture.asset(
+                    'assets/icons/users_bottom_bar_Active.svg')
+                : new SvgPicture.asset('assets/icons/users_bottom_bar.svg'),
+          ),
+          BottomNavigationBarItem(
+            title: Text(''),
+            icon: _currentIndex == 2
+                ? new SvgPicture.asset(
+                    'assets/icons/wallet_bottom_bar_Active.svg')
+                : new SvgPicture.asset('assets/icons/wallet_bottom_bar.svg'),
+          ),
+          BottomNavigationBarItem(
+            title: Text(''),
+            icon: _currentIndex == 3
+                ? new SvgPicture.asset(
+                    'assets/icons/setting_bottom_bar_Active.svg')
+                : new SvgPicture.asset('assets/icons/setting_bottom_bar.svg'),
+          ),
+        ],
+        selectedItemColor: kTextColor,
+        unselectedItemColor: kAllColor,
+        // onTap: _onItemTapped,
+      ),
+    );
   }
 }

@@ -14,12 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PayPal',
       theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          scaffoldBackgroundColor: Colors.white,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: GoogleFonts.manropeTextTheme(
-            Theme.of(context).textTheme,
-          )),
+        primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: Colors.white,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: GoogleFonts.manropeTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: AutorizationScreen(),
       // home: WalletScreen(),

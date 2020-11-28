@@ -19,48 +19,55 @@ class ActivityListAll extends StatelessWidget {
         children: <Widget>[
           DateActivity("Today"),
           ContactContainer(
-              activityContainerText: "Mike Rine",
-              icon: "M",
-              timer: "1 minute ago",
-              activityType: "people",
-              sumOfActivity: "+,250"),
+            activityContainerText: "Mike Rine",
+            icon: "M",
+            timer: "1 minute ago",
+            activityType: "people",
+            sumOfActivity: "+,250",
+          ),
           ContactContainer(
-              activityContainerText: "Google Drive",
-              icon: "Google",
-              timer: "2 hours ago",
-              activityType: "shop",
-              sumOfActivity: "-,138.5"),
+            activityContainerText: "Google Drive",
+            icon: "Google",
+            timer: "2 hours ago",
+            activityType: "shop",
+            sumOfActivity: "-,138.5",
+          ),
           ContactContainer(
-              activityContainerText: "Casey Smith",
-              icon: "C",
-              timer: "9 hours ago",
-              activityType: "people",
-              sumOfActivity: "+,531"),
+            activityContainerText: "Casey Smith",
+            icon: "C",
+            timer: "9 hours ago",
+            activityType: "people",
+            sumOfActivity: "+,531",
+          ),
           DateActivity("Yesterday"),
           ContactContainer(
-              activityContainerText: "Apple Store",
-              icon: "Apple",
-              timer: "Yesterday at 11:45 AM",
-              activityType: "shop",
-              sumOfActivity: "-,250"),
+            activityContainerText: "Apple Store",
+            icon: "Apple",
+            timer: "Yesterday at 11:45 AM",
+            activityType: "shop",
+            sumOfActivity: "-,250",
+          ),
           ContactContainer(
-              activityContainerText: "Pizza Delivery",
-              icon: "pizza",
-              timer: "Yesterday at 2:30 PM",
-              activityType: "shop",
-              sumOfActivity: "-,58.9"),
+            activityContainerText: "Pizza Delivery",
+            icon: "pizza",
+            timer: "Yesterday at 2:30 PM",
+            activityType: "shop",
+            sumOfActivity: "-,58.9",
+          ),
           ContactContainer(
-              activityContainerText: "Amazon.com",
-              icon: "Amazon",
-              timer: "Yesterday at 6:28 PM",
-              activityType: "shop",
-              sumOfActivity: "-,300"),
+            activityContainerText: "Amazon.com",
+            icon: "Amazon",
+            timer: "Yesterday at 6:28 PM",
+            activityType: "shop",
+            sumOfActivity: "-,300",
+          ),
           ContactContainer(
-              activityContainerText: "Viktor Dima",
-              icon: "V",
-              timer: "Yesterday at 6:59 PM",
-              activityType: "people",
-              sumOfActivity: "+,550"),
+            activityContainerText: "Viktor Dima",
+            icon: "V",
+            timer: "Yesterday at 6:59 PM",
+            activityType: "people",
+            sumOfActivity: "+,550",
+          ),
         ],
       ),
     );
@@ -82,24 +89,27 @@ class ActivityListIncome extends StatelessWidget {
         children: <Widget>[
           DateActivity("Today"),
           ContactContainer(
-              activityContainerText: "Mike Rine",
-              icon: "M",
-              timer: "1 minute ago",
-              activityType: "people",
-              sumOfActivity: "+,250"),
+            activityContainerText: "Mike Rine",
+            icon: "M",
+            timer: "1 minute ago",
+            activityType: "people",
+            sumOfActivity: "+,250",
+          ),
           ContactContainer(
-              activityContainerText: "Casey Smith",
-              icon: "C",
-              timer: "9 hours ago",
-              activityType: "people",
-              sumOfActivity: "+,531"),
+            activityContainerText: "Casey Smith",
+            icon: "C",
+            timer: "9 hours ago",
+            activityType: "people",
+            sumOfActivity: "+,531",
+          ),
           DateActivity("Yesterday"),
           ContactContainer(
-              activityContainerText: "Viktor Dima",
-              icon: "V",
-              timer: "Yesterday at 6:59 PM",
-              activityType: "people",
-              sumOfActivity: "+,550"),
+            activityContainerText: "Viktor Dima",
+            icon: "V",
+            timer: "Yesterday at 6:59 PM",
+            activityType: "people",
+            sumOfActivity: "+,550",
+          ),
         ],
       ),
     );
@@ -121,30 +131,34 @@ class ActivityListOutcome extends StatelessWidget {
         children: <Widget>[
           DateActivity("Today"),
           ContactContainer(
-              activityContainerText: "Google Drive",
-              icon: "Google",
-              timer: "2 hours ago",
-              activityType: "shop",
-              sumOfActivity: "-,138.5"),
+            activityContainerText: "Google Drive",
+            icon: "Google",
+            timer: "2 hours ago",
+            activityType: "shop",
+            sumOfActivity: "-,138.5",
+          ),
           DateActivity("Yesterday"),
           ContactContainer(
-              activityContainerText: "Apple Store",
-              icon: "Apple",
-              timer: "Yesterday at 11:45 AM",
-              activityType: "shop",
-              sumOfActivity: "-,250"),
+            activityContainerText: "Apple Store",
+            icon: "Apple",
+            timer: "Yesterday at 11:45 AM",
+            activityType: "shop",
+            sumOfActivity: "-,250",
+          ),
           ContactContainer(
-              activityContainerText: "Pizza Delivery",
-              icon: "pizza",
-              timer: "Yesterday at 2:30 PM",
-              activityType: "shop",
-              sumOfActivity: "-,58.9"),
+            activityContainerText: "Pizza Delivery",
+            icon: "pizza",
+            timer: "Yesterday at 2:30 PM",
+            activityType: "shop",
+            sumOfActivity: "-,58.9",
+          ),
           ContactContainer(
-              activityContainerText: "Amazon.com",
-              icon: "Amazon",
-              timer: "Yesterday at 6:28 PM",
-              activityType: "shop",
-              sumOfActivity: "-,300"),
+            activityContainerText: "Amazon.com",
+            icon: "Amazon",
+            timer: "Yesterday at 6:28 PM",
+            activityType: "shop",
+            sumOfActivity: "-,300",
+          ),
         ],
       ),
     );
@@ -172,33 +186,35 @@ class _ActivityListState extends State<ActivityList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        shrinkWrap: true,
-        itemCount: _user_activity.length,
-        itemBuilder: (context, index) {
-          var temp = _user_activity[index].split('/');
-          var tempDate = temp[2].split(' ');
-          var temporary = "";
-          var today = 0;
-          var yesterday = 0;
-          if (tempDate[0] != "Yesterday") {
-            tempDate[0] = "Today";
-            today += 1;
-          } else {
-            yesterday += 1;
-          }
-          return Column(
-            children: [
-              today == 4
-                  ? DateActivity("${tempDate[0]}")
-                  : DateActivity("${tempDate[0]}"),
-              ContactContainer(
-                  activityContainerText: temp[0].toString(),
-                  icon: temp[1].toString(),
-                  timer: temp[2].toString(),
-                  activityType: temp[3].toString(),
-                  sumOfActivity: temp[4].toString()),
-            ],
-          );
-        });
+      shrinkWrap: true,
+      itemCount: _user_activity.length,
+      itemBuilder: (context, index) {
+        var temp = _user_activity[index].split('/');
+        var tempDate = temp[2].split(' ');
+        var temporary = "";
+        var today = 0;
+        var yesterday = 0;
+        if (tempDate[0] != "Yesterday") {
+          tempDate[0] = "Today";
+          today += 1;
+        } else {
+          yesterday += 1;
+        }
+        return Column(
+          children: [
+            today == 4
+                ? DateActivity("${tempDate[0]}")
+                : DateActivity("${tempDate[0]}"),
+            ContactContainer(
+              activityContainerText: temp[0].toString(),
+              icon: temp[1].toString(),
+              timer: temp[2].toString(),
+              activityType: temp[3].toString(),
+              sumOfActivity: temp[4].toString(),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

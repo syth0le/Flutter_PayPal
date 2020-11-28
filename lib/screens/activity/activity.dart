@@ -24,44 +24,53 @@ class _ActivityScreenState extends State<ActivityScreen> {
         height: 50,
         width: 300,
         child: CupertinoSlidingSegmentedControl(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            groupValue: segmentedControlValue,
-            thumbColor: Color(0xFF005EA6),
-            backgroundColor: Color(0xFFF5F7FA),
-            children: <int, Widget>{
-              0: Text('All',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 0
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-              1: Text('Income',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 1
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-              2: Text('Outcome',
-                  style: GoogleFonts.manrope(
-                    textStyle: TextStyle(
-                        fontSize: 16.0,
-                        color: segmentedControlValue == 2
-                            ? Colors.white
-                            : kPrimaryColor,
-                        fontWeight: FontWeight.w400),
-                  )),
-            },
-            onValueChanged: (value) {
-              setState(() {
+          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          groupValue: segmentedControlValue,
+          thumbColor: Color(0xFF005EA6),
+          backgroundColor: Color(0xFFF5F7FA),
+          children: <int, Widget>{
+            0: Text(
+              'All',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 0 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            1: Text(
+              'Income',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 1 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            2: Text(
+              'Outcome',
+              style: GoogleFonts.manrope(
+                textStyle: TextStyle(
+                  fontSize: 16.0,
+                  color:
+                      segmentedControlValue == 2 ? Colors.white : kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          },
+          onValueChanged: (value) {
+            setState(
+              () {
                 segmentedControlValue = value;
-              });
-            }),
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -71,18 +80,24 @@ class _ActivityScreenState extends State<ActivityScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: new Text("Activity",
-            style: GoogleFonts.manrope(
-                textStyle:
-                    TextStyle(color: kAllColor, fontWeight: FontWeight.w600))),
+        title: new Text(
+          "Activity",
+          style: GoogleFonts.manrope(
+            textStyle: TextStyle(
+              color: kAllColor,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
         elevation: 0,
         leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: kAllColor,
-            ),
-            onPressed: () => Navigator.of(context).pop(),
-            color: kAllColor),
+          icon: Icon(
+            Icons.arrow_back,
+            color: kAllColor,
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+          color: kAllColor,
+        ),
         actions: <Widget>[
           IconButton(
             icon: SvgPicture.asset(
@@ -124,12 +139,13 @@ class _ActivityScreenState extends State<ActivityScreen> {
             children: [
               Expanded(
                 child: ScrollConfiguration(
-                    behavior: MyCustomScroll(),
-                    child: (segmentedControlValue == 0)
-                        ? ActivityListAll()
-                        : (segmentedControlValue == 1)
-                            ? ActivityListIncome()
-                            : ActivityListOutcome()),
+                  behavior: MyCustomScroll(),
+                  child: (segmentedControlValue == 0)
+                      ? ActivityListAll()
+                      : (segmentedControlValue == 1)
+                          ? ActivityListIncome()
+                          : ActivityListOutcome(),
+                ),
               ),
             ],
           ),

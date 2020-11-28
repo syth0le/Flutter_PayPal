@@ -66,9 +66,10 @@ class HomeScreen extends StatelessWidget {
                         "Hello, Vadim!",
                         style: GoogleFonts.manrope(
                           textStyle: TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w400),
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
@@ -86,9 +87,10 @@ class HomeScreen extends StatelessWidget {
                           "\$ 272.30",
                           style: GoogleFonts.manrope(
                             textStyle: TextStyle(
-                                color: Color(0xFFFFFFFF),
-                                fontSize: 40.0,
-                                fontWeight: FontWeight.w600),
+                              color: Color(0xFFFFFFFF),
+                              fontSize: 40.0,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                         Padding(
@@ -97,9 +99,10 @@ class HomeScreen extends StatelessWidget {
                             "Your Balance",
                             style: GoogleFonts.manrope(
                               textStyle: TextStyle(
-                                  color: Color(0xFFFFFFFF),
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w400),
+                                color: Color(0xFFFFFFFF),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
@@ -125,59 +128,68 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   CardInfo(),
                   ContactContainer(
-                      activityContainerText: "Mike Rine",
-                      icon: "M",
-                      timer: "1 minute ago",
-                      activityType: "people",
-                      sumOfActivity: "+,250"),
+                    activityContainerText: "Mike Rine",
+                    icon: "M",
+                    timer: "1 minute ago",
+                    activityType: "people",
+                    sumOfActivity: "+,250",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Google Drive",
-                      icon: "Google",
-                      timer: "2 hours ago",
-                      activityType: "shop",
-                      sumOfActivity: "-,138.5"),
+                    activityContainerText: "Google Drive",
+                    icon: "Google",
+                    timer: "2 hours ago",
+                    activityType: "shop",
+                    sumOfActivity: "-,138.5",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Casey Smith",
-                      icon: "C",
-                      timer: "9 hours ago",
-                      activityType: "people",
-                      sumOfActivity: "+,531"),
+                    activityContainerText: "Casey Smith",
+                    icon: "C",
+                    timer: "9 hours ago",
+                    activityType: "people",
+                    sumOfActivity: "+,531",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Mike Rine",
-                      icon: "M",
-                      timer: "1 minute ago",
-                      activityType: "people",
-                      sumOfActivity: "+,250"),
+                    activityContainerText: "Mike Rine",
+                    icon: "M",
+                    timer: "1 minute ago",
+                    activityType: "people",
+                    sumOfActivity: "+,250",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Google Drive",
-                      icon: "Google",
-                      timer: "2 hours ago",
-                      activityType: "shop",
-                      sumOfActivity: "-,138.5"),
+                    activityContainerText: "Google Drive",
+                    icon: "Google",
+                    timer: "2 hours ago",
+                    activityType: "shop",
+                    sumOfActivity: "-,138.5",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Casey Smith",
-                      icon: "C",
-                      timer: "9 hours ago",
-                      activityType: "people",
-                      sumOfActivity: "+,531"),
+                    activityContainerText: "Casey Smith",
+                    icon: "C",
+                    timer: "9 hours ago",
+                    activityType: "people",
+                    sumOfActivity: "+,531",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Mike Rine",
-                      icon: "M",
-                      timer: "1 minute ago",
-                      activityType: "people",
-                      sumOfActivity: "+,250"),
+                    activityContainerText: "Mike Rine",
+                    icon: "M",
+                    timer: "1 minute ago",
+                    activityType: "people",
+                    sumOfActivity: "+,250",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Google Drive",
-                      icon: "Google",
-                      timer: "2 hours ago",
-                      activityType: "shop",
-                      sumOfActivity: "-,138.5"),
+                    activityContainerText: "Google Drive",
+                    icon: "Google",
+                    timer: "2 hours ago",
+                    activityType: "shop",
+                    sumOfActivity: "-,138.5",
+                  ),
                   ContactContainer(
-                      activityContainerText: "Casey Smith",
-                      icon: "C",
-                      timer: "9 hours ago",
-                      activityType: "people",
-                      sumOfActivity: "+,531"),
+                    activityContainerText: "Casey Smith",
+                    icon: "C",
+                    timer: "9 hours ago",
+                    activityType: "people",
+                    sumOfActivity: "+,531",
+                  ),
                 ],
               ),
             ),
@@ -237,10 +249,11 @@ class CardMenu extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20)),
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.3),
@@ -257,10 +270,12 @@ class CardMenu extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: cardColor == 1
                   ? LinearGradient(colors: [kGradientMin, kGradientMax])
-                  : LinearGradient(colors: [
-                      Color(0xFFFFFFFF),
-                      Color(0xFFFFFFFF),
-                    ]),
+                  : LinearGradient(
+                      colors: [
+                        Color(0xFFFFFFFF),
+                        Color(0xFFFFFFFF),
+                      ],
+                    ),
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             child: Column(
@@ -269,9 +284,11 @@ class CardMenu extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 15, 0, 10),
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: SvgPicture.asset(cardColor == 1
-                        ? "assets/icons/download.svg"
-                        : "assets/icons/upload.svg"),
+                    child: SvgPicture.asset(
+                      cardColor == 1
+                          ? "assets/icons/download.svg"
+                          : "assets/icons/upload.svg",
+                    ),
                   ),
                 ),
                 Padding(
@@ -282,13 +299,14 @@ class CardMenu extends StatelessWidget {
                       "$text".split(' ').join("\n"),
                       style: GoogleFonts.manrope(
                         textStyle: TextStyle(
-                            fontSize: 12.0,
-                            color: cardColor == 1
-                                ? kBackgroundColor
-                                : Color(0xFF005EA6),
-                            fontWeight: cardColor == 1
-                                ? FontWeight.w600
-                                : FontWeight.w500),
+                          fontSize: 12.0,
+                          color: cardColor == 1
+                              ? kBackgroundColor
+                              : Color(0xFF005EA6),
+                          fontWeight: cardColor == 1
+                              ? FontWeight.w600
+                              : FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
@@ -319,13 +337,13 @@ class CardInfo extends StatelessWidget {
                 "Activity",
                 style: GoogleFonts.manrope(
                   textStyle: TextStyle(
-                      fontSize: 16.0,
-                      color: kAllColor,
-                      fontWeight: FontWeight.w600),
+                    fontSize: 16.0,
+                    color: kAllColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               GestureDetector(
-                // When the child is tapped, show a snackbar.
                 onTap: () {
                   Navigator.push(
                     context,
@@ -336,7 +354,6 @@ class CardInfo extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  // color: Colors.amber,
                   height: 35,
                   width: 60,
                   child: Center(
@@ -344,9 +361,10 @@ class CardInfo extends StatelessWidget {
                       "View All",
                       style: GoogleFonts.manrope(
                         textStyle: TextStyle(
-                            fontSize: 12.0,
-                            color: Color.fromRGBO(155, 155, 155, 1.0),
-                            fontWeight: FontWeight.w400),
+                          fontSize: 12.0,
+                          color: Color.fromRGBO(155, 155, 155, 1.0),
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
