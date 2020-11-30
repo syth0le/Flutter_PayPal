@@ -5,12 +5,16 @@ Training project. Try to create PayPal redesign on Flutter.
 
 ## U can check app screenshots down below:
 
-<img src="/screenshots/auth.png" alt="auth"/>
-<img src="/screenshots/home.png" alt="home"/>
-<img src="/screenshots/swipe.png" alt="swipe"/>
-<img src="/screenshots/wallet.png" alt="wallet"/>
-<img src="/screenshots/activity_all.png" alt="activity_all"/>
-<img src="/screenshots/activity_outcome.png" alt="activity_outcome"/>
-<img src="/screenshots/activity_income.png" alt="activity_income"/>
-<img src="/screenshots/contacts.png" alt="contacts"/>
-<img src="/screenshots/send_money.png" alt="send_money"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/auth.png" alt="auth"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/home.png" alt="home"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/swipe.png" alt="swipe"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/wallet.png" alt="wallet"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/activity_all.png" alt="activity_all"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/activity_outcome.png" alt="activity_outcome"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/activity_income.png" alt="activity_income"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/contacts.png" alt="contacts"/>
+<img src="https://raw.githubusercontent.com/syth0le/Flutter_PayPal/main/screenshots/send_money.png" alt="send_money"/>
+
+<!-- | коль 1      | коль 2      |
+|------------|-------------|
+| Рисунок 1 | Рисунок 2 |-->
