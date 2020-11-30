@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart';
-
 import 'activity_item_container.dart';
 import 'date_activity_item.dart';
 
